@@ -30,19 +30,25 @@ bool collatz_read (std::istream& r, int& i, int& j) {
 // collatz_eval
 // ------------
 
-int collatz_eval (int i, int j) {//changes
+int collatz_eval (int i, int j) {
     using namespace std;
     assert(i > 0);
     assert(j > 0);
     // <your code>
     int v = 1;
     int k = 0;
+    
+    if(i>j) {
+    	int temp = i;
+    	i = j;
+    	j = temp;
+    }
     map<int, int> cache;
     while (i <= j) {
         k = i;
         int cycleLen = 1;
         while (k != 1) {
-            if (cache.count(k)) {
+            if (cache.count(k) == 0) {
                 if (k%2 != 0) {
                     k = k * 3 +1;
                     cycleLen++;
