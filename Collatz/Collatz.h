@@ -31,8 +31,10 @@ bool collatz_read (std::istream&, int&, int&);
 // ------------
 
 /**
+ * @param called by collatz_solve
  * @param i the beginning of the range, inclusive
  * @param j the end       of the range, inclusive
+ * @param A lazy cache is implemented in this method to improve the efficiency of the program.
  * @return the max cycle length in the range [i, j]
  */
 int collatz_eval (int, int);
