@@ -35,9 +35,7 @@ int collatz_eval (int i, int j) {
     assert(i > 0);
     assert(j > 0);
     // <your code>
-    int v = 1;
-    int k = 0;
-    
+    int v = 1;    
     if(i>j) {
     	int temp = i;
     	i = j;
@@ -45,7 +43,7 @@ int collatz_eval (int i, int j) {
     }
     map<int, int> cache;
     while (i <= j) {
-        k = i;
+        int k = i;
         int cycleLen = 1;
         while (k != 1) {
             if (cache.count(k) == 0) {
@@ -60,8 +58,8 @@ int collatz_eval (int i, int j) {
                 cycleLen += ((cache.find(k) -> second)-1);
                 break;
             }
-            cache[i] = cycleLen;
         }
+        cache[i] = cycleLen;
         if (cycleLen > v)
             v = cycleLen;
         i++;
